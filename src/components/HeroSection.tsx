@@ -100,60 +100,96 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           />
         </div>
 
-        {/* Floating Glassmorphic Quick-Diagnostic Bar with Zero Truncation */}
-        <div className="w-full max-w-5xl mt-6 p-3 sm:p-4 bg-[#161C2E]/95 backdrop-blur-xl border border-cyan-500/35 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
-          <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
-            {/* Category Selector Tabs - No Truncation, Complete Azerbaijani text */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 flex-1">
-              {(['kombi', 'kondisioner', 'meiset', 'senaye'] as ServiceCategory[]).map((cat) => {
-                const isSelected = selectedCategory === cat;
-                return (
-                  <button
-                    key={cat}
-                    onClick={() => onSelectCategory(cat)}
-                    className={`flex items-center justify-center sm:justify-start gap-2.5 px-3.5 py-3 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer min-h-[44px] ${
-                      isSelected
-                        ? 'bg-[#00F0FF]/25 text-[#00F0FF] border border-[#00F0FF]/60 shadow-[0_0_15px_rgba(0,240,255,0.25)]'
-                        : 'text-slate-100 hover:text-white hover:bg-slate-800/80 border border-slate-700/60 bg-[#0B0F19]/60'
-                    }`}
-                  >
-                    <span className="shrink-0">{categoryIcons[cat]}</span>
-                    <span className="leading-tight text-center sm:text-left whitespace-normal">
+        {/* Floating Glassmorphic Quick-Diagnostic Container with Decoupled Sections */}
+        <div className="w-full max-w-5xl mt-6 p-4 sm:p-5 bg-[#161C2E]/95 backdrop-blur-xl border border-cyan-500/35 rounded-2xl shadow-[0_12px_45px_rgba(0,0,0,0.6)]">
+          {/* Section Header / Kicker */}
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-3.5 px-1">
+            <div className="flex items-center gap-2 text-xs sm:text-sm font-mono text-[#00F0FF] uppercase tracking-wider font-semibold">
+              <span className="w-2 h-2 rounded-full bg-[#00F0FF] animate-pulse" />
+              <span>{t.quickBar.selectEquipment || 'Avadanlıq Növünü Seçin'}</span>
+            </div>
+            <div className="text-xs sm:text-sm font-mono text-[#10B981] font-medium flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+              <span>38 Aktiv Usta Bakı Üzrə</span>
+            </div>
+          </div>
+
+          {/* Area 1: Responsive Category Tabs Grid - full width, adequate width, padding, min-w-0 */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full">
+            {(['kombi', 'kondisioner', 'meiset', 'senaye'] as ServiceCategory[]).map((cat) => {
+              const isSelected = selectedCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => onSelectCategory(cat)}
+                  className={`min-w-0 w-full p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer flex flex-col justify-between gap-2.5 min-h-[68px] sm:min-h-[76px] border ${
+                    isSelected
+                      ? 'bg-[#00F0FF]/15 text-[#00F0FF] border-[#00F0FF] shadow-[0_0_20px_rgba(0,240,255,0.25)] ring-1 ring-[#00F0FF]/50'
+                      : 'bg-[#0B0F19]/80 text-[#F8FAFC] hover:text-white hover:bg-slate-800/90 border-slate-700/80 hover:border-slate-500'
+                  }`}
+                >
+                  <div className="flex items-center justify-between w-full">
+                    <span className="p-1.5 rounded-lg bg-[#161C2E] border border-slate-700/80 shrink-0">
+                      {categoryIcons[cat]}
+                    </span>
+                    <span
+                      className={`text-[11px] sm:text-xs font-mono font-semibold px-2 py-0.5 rounded ${
+                        isSelected
+                          ? 'bg-[#00F0FF]/25 text-[#00F0FF]'
+                          : 'bg-slate-800 text-slate-300'
+                      }`}
+                    >
+                      {t.categories[cat].activeTechCount} Usta
+                    </span>
+                  </div>
+                  <div className="min-w-0 w-full">
+                    <span className="block text-sm sm:text-base font-bold leading-snug break-words">
                       {t.categories[cat].label}
                     </span>
-                  </button>
-                );
-              })}
-            </div>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
 
-            {/* Quick Diagnostic Detail & CTA Button */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between lg:justify-end gap-3.5 pt-3 lg:pt-0 border-t lg:border-t-0 border-slate-800 shrink-0">
-              <div className="text-left">
-                <div className="text-xs uppercase font-mono font-semibold text-slate-300">
-                  {t.quickBar.detectedFault}
+          {/* Area 2: Dedicated Diagnostic Preview & CTA Action Area (Completely separate, readable, never crowded) */}
+          <div className="mt-4 pt-4 border-t border-slate-700/80 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+            {/* Fault & Price Diagnostics */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 flex-1 min-w-0">
+              {/* Fault Item */}
+              <div className="p-3 sm:p-3.5 rounded-xl bg-[#0B0F19]/90 border border-slate-700/80 min-w-0">
+                <div className="text-xs font-mono font-semibold text-slate-300 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF]" />
+                  <span>{t.quickBar.detectedFault}</span>
                 </div>
-                <div className="text-sm font-semibold text-[#F8FAFC] leading-snug">
+                <div className="text-sm sm:text-base font-semibold text-[#F8FAFC] leading-snug break-words">
                   {categoryPricingPreview[selectedCategory].fault}
                 </div>
               </div>
 
-              <div className="text-left border-l border-slate-700 pl-3.5 hidden sm:block">
-                <div className="text-xs uppercase font-mono font-semibold text-slate-300">
-                  {t.quickBar.estCostFrom}
+              {/* Price Item */}
+              <div className="p-3 sm:p-3.5 rounded-xl bg-[#0B0F19]/90 border border-slate-700/80 min-w-0">
+                <div className="text-xs font-mono font-semibold text-slate-300 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+                  <span>{t.quickBar.estCostFrom}</span>
                 </div>
-                <div className="text-sm sm:text-base font-mono font-bold text-[#00F0FF] tabular-nums">
-                  {categoryPricingPreview[selectedCategory].fromAzn} ₼-dan
+                <div className="flex items-baseline gap-2">
+                  <span className="text-base sm:text-lg font-mono font-bold text-[#00F0FF] tabular-nums">
+                    {categoryPricingPreview[selectedCategory].fromAzn} ₼-dan
+                  </span>
+                  <span className="text-xs text-[#CBD5E1]">· Rəsmi zəmanətlə</span>
                 </div>
               </div>
-
-              <button
-                onClick={() => onOpenDispatchWithCategory(selectedCategory)}
-                className="w-full sm:w-auto px-6 py-3 text-sm font-bold uppercase tracking-wider text-slate-950 bg-[#00F0FF] hover:bg-[#38bdf8] rounded-lg transition-all duration-200 shadow-[0_0_20px_rgba(0,240,255,0.45)] hover:shadow-[0_0_28px_rgba(0,240,255,0.7)] flex items-center justify-center gap-2 cursor-pointer active:scale-95 whitespace-nowrap"
-              >
-                <Wrench className="w-4 h-4 text-slate-950" />
-                <span>{t.quickBar.callMasterBtn}</span>
-              </button>
             </div>
+
+            {/* CTA Action Button */}
+            <button
+              onClick={() => onOpenDispatchWithCategory(selectedCategory)}
+              className="w-full lg:w-auto px-7 py-4 text-[15px] sm:text-base font-bold uppercase tracking-wider text-slate-950 bg-[#00F0FF] hover:bg-[#38bdf8] rounded-xl transition-all duration-200 shadow-[0_0_24px_rgba(0,240,255,0.45)] hover:shadow-[0_0_34px_rgba(0,240,255,0.7)] flex items-center justify-center gap-2.5 cursor-pointer active:scale-95 shrink-0 whitespace-nowrap"
+            >
+              <Wrench className="w-5 h-5 text-slate-950 stroke-[2.5]" />
+              <span>{t.quickBar.callMasterBtn}</span>
+            </button>
           </div>
         </div>
 

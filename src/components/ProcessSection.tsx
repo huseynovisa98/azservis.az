@@ -63,15 +63,15 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ currentLang }) =
                     <div className="p-1.5 rounded-lg bg-[#0B0F19]/80">{stepIcons[idx]}</div>
                   </div>
                   <div
-                    className={`text-sm sm:text-base font-semibold leading-snug whitespace-normal ${
-                      isActive ? 'text-white' : 'text-slate-100'
+                    className={`text-base sm:text-lg font-bold leading-snug whitespace-normal ${
+                      isActive ? 'text-[#00F0FF]' : 'text-[#F8FAFC]'
                     }`}
                   >
                     {step.title}
                   </div>
                 </div>
 
-                <div className="text-xs sm:text-sm font-mono text-slate-300 mt-2.5 flex items-center gap-1.5">
+                <div className="text-xs sm:text-sm font-mono text-slate-200 mt-2.5 flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[#00F0FF] shrink-0" />
                   <span>{step.timeBadge}</span>
                 </div>
@@ -86,7 +86,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ currentLang }) =
         </div>
 
         {/* Selected Step Detailed Feature Spotlight */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-[#161C2E]/90 border border-slate-700 backdrop-blur-md shadow-xl">
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#161C2E]/95 border border-slate-700 backdrop-blur-md shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2 text-xs sm:text-sm font-mono font-semibold text-[#00F0FF] mb-2.5">
@@ -97,7 +97,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ currentLang }) =
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
                 {steps[activeStepIndex].title}
               </h3>
-              <p className="text-slate-200 text-base sm:text-lg leading-relaxed mb-6 font-normal">
+              <p className="text-slate-100 text-base sm:text-lg leading-relaxed mb-6 font-normal">
                 {steps[activeStepIndex].description}
               </p>
 
@@ -106,7 +106,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ currentLang }) =
                 {steps[activeStepIndex].details.map((detail, dIdx) => (
                   <div key={dIdx} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-[#10B981] shrink-0 mt-0.5" />
-                    <span className="text-[15px] sm:text-base text-slate-100 leading-snug">{detail}</span>
+                    <span className="text-base text-[#F8FAFC] leading-snug">{detail}</span>
                   </div>
                 ))}
               </div>
@@ -115,8 +115,8 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({ currentLang }) =
             <div className="lg:col-span-5 flex flex-col justify-center">
               <div className="p-6 rounded-xl bg-[#0B0F19]/95 border border-slate-700 space-y-4 shadow-lg">
                 <div className="flex items-center justify-between border-b border-slate-700/80 pb-3">
-                  <span className="text-xs sm:text-sm font-mono font-bold text-slate-300">PROTOKOL STATUSU</span>
-                  <span className="text-xs sm:text-sm font-mono font-bold text-[#10B981] flex items-center gap-1.5 bg-emerald-950/70 px-2 py-0.5 rounded border border-emerald-500/40">
+                  <span className="text-xs sm:text-sm font-mono font-bold text-slate-200">PROTOKOL STATUSU</span>
+                  <span className="text-xs sm:text-sm font-mono font-bold text-[#10B981] flex items-center gap-1.5 bg-emerald-950/70 px-2.5 py-1 rounded-md border border-emerald-500/40">
                     <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
                     ISO 9001:2015 STANDART
                   </span>

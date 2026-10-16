@@ -205,7 +205,7 @@ export const DispatchDrawer: React.FC<DispatchDrawerProps> = ({
                 )}
 
                 <div>
-                  <label className="block text-xs sm:text-sm font-semibold text-slate-100 mb-1.5">
+                  <label className="block text-sm font-semibold text-[#F8FAFC] mb-1.5">
                     {d.nameLabel} <span className="text-red-400">*</span>
                   </label>
                   <input
@@ -214,12 +214,12 @@ export const DispatchDrawer: React.FC<DispatchDrawerProps> = ({
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder={d.namePlaceholder}
-                    className="w-full bg-[#0B0F19] border border-slate-700 rounded-xl px-4 py-2.5 text-sm sm:text-base text-slate-50 placeholder-slate-400 focus:outline-none focus:border-[#00F0FF]"
+                    className="w-full bg-[#0B0F19] border border-slate-700 rounded-xl px-4 py-3 text-base text-[#F8FAFC] placeholder-slate-400 focus:outline-none focus:border-[#00F0FF]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs sm:text-sm font-semibold text-slate-100 mb-1.5">
+                  <label className="block text-sm font-semibold text-[#F8FAFC] mb-1.5">
                     {d.phoneLabel} <span className="text-red-400">*</span>
                   </label>
                   <input
@@ -228,19 +228,19 @@ export const DispatchDrawer: React.FC<DispatchDrawerProps> = ({
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+994 (50) 000-00-00"
-                    className="w-full bg-[#0B0F19] border border-slate-700 rounded-xl px-4 py-2.5 text-sm sm:text-base text-slate-50 placeholder-slate-400 focus:outline-none focus:border-[#00F0FF] font-mono"
+                    className="w-full bg-[#0B0F19] border border-slate-700 rounded-xl px-4 py-3 text-base text-[#F8FAFC] placeholder-slate-400 focus:outline-none focus:border-[#00F0FF] font-mono"
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs sm:text-sm font-semibold text-slate-100 mb-1.5">
+                    <label className="block text-sm font-semibold text-[#F8FAFC] mb-1.5">
                       {d.districtLabel}
                     </label>
                     <select
                       value={district}
                       onChange={(e) => setDistrict(e.target.value)}
-                      className="w-full bg-[#0B0F19] border border-slate-700 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-[#00F0FF] font-medium"
+                      className="w-full bg-[#0B0F19] border border-slate-700 rounded-xl px-3.5 py-3 text-sm sm:text-base text-[#F8FAFC] focus:outline-none focus:border-[#00F0FF] font-medium"
                     >
                       {bakuDistricts.map((dst) => (
                         <option key={dst} value={dst}>
@@ -251,13 +251,13 @@ export const DispatchDrawer: React.FC<DispatchDrawerProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs sm:text-sm font-semibold text-slate-100 mb-1.5">
+                    <label className="block text-sm font-semibold text-[#F8FAFC] mb-1.5">
                       {d.deviceTypeLabel}
                     </label>
                     <select
                       value={deviceType}
                       onChange={(e) => setDeviceType(e.target.value)}
-                      className="w-full bg-[#0B0F19] border border-slate-700 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-[#00F0FF] font-medium"
+                      className="w-full bg-[#0B0F19] border border-slate-700 rounded-xl px-3.5 py-3 text-sm sm:text-base text-[#F8FAFC] focus:outline-none focus:border-[#00F0FF] font-medium"
                     >
                       <option value="kombi">Kombi & İstilik</option>
                       <option value="kondisioner">Kondisioner</option>
@@ -270,7 +270,7 @@ export const DispatchDrawer: React.FC<DispatchDrawerProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs sm:text-sm font-semibold text-slate-100 mb-1.5">
+                  <label className="block text-sm font-semibold text-[#F8FAFC] mb-1.5">
                     {d.issueDescLabel}
                   </label>
                   <textarea
@@ -278,22 +278,22 @@ export const DispatchDrawer: React.FC<DispatchDrawerProps> = ({
                     value={issueDesc}
                     onChange={(e) => setIssueDesc(e.target.value)}
                     placeholder={d.issueDescPlaceholder}
-                    className="w-full bg-[#0B0F19] border border-slate-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-50 placeholder-slate-400 focus:outline-none focus:border-[#00F0FF] resize-none"
+                    className="w-full bg-[#0B0F19] border border-slate-700 rounded-xl px-4 py-3 text-sm sm:text-base text-[#F8FAFC] placeholder-slate-400 focus:outline-none focus:border-[#00F0FF] resize-none leading-relaxed"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs sm:text-sm font-semibold text-slate-100 mb-2">
+                  <label className="block text-sm font-semibold text-[#F8FAFC] mb-2">
                     {d.preferredTimeLabel}
                   </label>
                   <div className="grid grid-cols-3 gap-2 text-xs sm:text-sm">
                     <button
                       type="button"
                       onClick={() => setPreferredTiming('urgent')}
-                      className={`p-2.5 rounded-xl border text-center cursor-pointer font-medium ${
+                      className={`p-3 rounded-xl border text-center cursor-pointer font-semibold ${
                         preferredTiming === 'urgent'
-                          ? 'bg-[#00F0FF]/25 border-[#00F0FF] text-[#00F0FF] font-bold shadow-[0_0_12px_rgba(0,240,255,0.2)]'
-                          : 'bg-[#0B0F19] border-slate-700 text-slate-200 hover:text-white'
+                          ? 'bg-[#00F0FF]/25 border-[#00F0FF] text-[#00F0FF] shadow-[0_0_12px_rgba(0,240,255,0.2)]'
+                          : 'bg-[#0B0F19] border-slate-700 text-[#F8FAFC] hover:text-white'
                       }`}
                     >
                       {d.timingUrgent}
@@ -301,10 +301,10 @@ export const DispatchDrawer: React.FC<DispatchDrawerProps> = ({
                     <button
                       type="button"
                       onClick={() => setPreferredTiming('morning')}
-                      className={`p-2.5 rounded-xl border text-center cursor-pointer font-medium ${
+                      className={`p-3 rounded-xl border text-center cursor-pointer font-semibold ${
                         preferredTiming === 'morning'
-                          ? 'bg-[#00F0FF]/25 border-[#00F0FF] text-[#00F0FF] font-bold shadow-[0_0_12px_rgba(0,240,255,0.2)]'
-                          : 'bg-[#0B0F19] border-slate-700 text-slate-200 hover:text-white'
+                          ? 'bg-[#00F0FF]/25 border-[#00F0FF] text-[#00F0FF] shadow-[0_0_12px_rgba(0,240,255,0.2)]'
+                          : 'bg-[#0B0F19] border-slate-700 text-[#F8FAFC] hover:text-white'
                       }`}
                     >
                       {d.timingMorning}
@@ -312,10 +312,10 @@ export const DispatchDrawer: React.FC<DispatchDrawerProps> = ({
                     <button
                       type="button"
                       onClick={() => setPreferredTiming('flexible')}
-                      className={`p-2.5 rounded-xl border text-center cursor-pointer font-medium ${
+                      className={`p-3 rounded-xl border text-center cursor-pointer font-semibold ${
                         preferredTiming === 'flexible'
-                          ? 'bg-[#00F0FF]/25 border-[#00F0FF] text-[#00F0FF] font-bold shadow-[0_0_12px_rgba(0,240,255,0.2)]'
-                          : 'bg-[#0B0F19] border-slate-700 text-slate-200 hover:text-white'
+                          ? 'bg-[#00F0FF]/25 border-[#00F0FF] text-[#00F0FF] shadow-[0_0_12px_rgba(0,240,255,0.2)]'
+                          : 'bg-[#0B0F19] border-slate-700 text-[#F8FAFC] hover:text-white'
                       }`}
                     >
                       {d.timingFlexible}
@@ -333,9 +333,9 @@ export const DispatchDrawer: React.FC<DispatchDrawerProps> = ({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 px-4 rounded-xl bg-[#00F0FF] hover:bg-[#38bdf8] text-slate-950 font-bold uppercase tracking-wider text-sm shadow-[0_0_22px_rgba(0,240,255,0.45)] transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 disabled:opacity-50"
+                  className="w-full py-4 px-4 rounded-xl bg-[#00F0FF] hover:bg-[#38bdf8] text-slate-950 font-bold uppercase tracking-wider text-[15px] sm:text-base shadow-[0_0_24px_rgba(0,240,255,0.45)] hover:shadow-[0_0_34px_rgba(0,240,255,0.7)] transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 disabled:opacity-50"
                 >
-                  <Send className="w-4 h-4 text-slate-950" />
+                  <Send className="w-5 h-5 text-slate-950 stroke-[2.5]" />
                   <span>{isSubmitting ? d.submitting : d.submitBtn}</span>
                 </button>
               </form>

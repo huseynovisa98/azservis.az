@@ -158,20 +158,20 @@ export const EstimatorSection: React.FC<EstimatorSectionProps> = ({
                 {t.estimator.step1Title}
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {applianceCategories.map((cat) => {
                   const isSelected = selectedCategory === cat.id;
                   return (
                     <button
                       key={cat.id}
                       onClick={() => handleCategorySwitch(cat.id)}
-                      className={`px-3.5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-left transition-all cursor-pointer min-h-[46px] flex items-center leading-snug whitespace-normal ${
+                      className={`min-w-0 px-4 py-3.5 rounded-xl text-sm sm:text-base font-semibold text-left transition-all cursor-pointer min-h-[54px] flex items-center leading-snug whitespace-normal ${
                         isSelected
-                          ? 'bg-[#00F0FF]/25 text-[#00F0FF] border border-[#00F0FF]/60 shadow-[0_0_15px_rgba(0,240,255,0.25)]'
-                          : 'bg-[#0B0F19]/80 text-slate-100 hover:text-white hover:bg-slate-800 border border-slate-700'
+                          ? 'bg-[#00F0FF]/25 text-[#00F0FF] border border-[#00F0FF]/70 shadow-[0_0_16px_rgba(0,240,255,0.25)] ring-1 ring-[#00F0FF]/40'
+                          : 'bg-[#0B0F19]/90 text-[#F8FAFC] hover:text-white hover:bg-slate-800 border border-slate-700/80 hover:border-slate-500'
                       }`}
                     >
-                      {cat.label}
+                      <span className="break-words">{cat.label}</span>
                     </button>
                   );
                 })}
@@ -195,10 +195,10 @@ export const EstimatorSection: React.FC<EstimatorSectionProps> = ({
                       className={`w-full p-4 rounded-xl text-left border flex items-center justify-between gap-3 transition-all cursor-pointer ${
                         isSelected
                           ? 'bg-[#161C2E] border-[#00F0FF]/70 shadow-[0_0_18px_rgba(0,240,255,0.2)]'
-                          : 'bg-[#0B0F19]/80 border-slate-700 hover:border-slate-600 hover:bg-[#0B0F19]'
+                          : 'bg-[#0B0F19]/90 border-slate-700 hover:border-slate-600 hover:bg-[#0B0F19]'
                       }`}
                     >
-                      <div className="flex items-center gap-3.5">
+                      <div className="flex items-center gap-3.5 min-w-0">
                         <div
                           className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
                             isSelected
@@ -208,15 +208,15 @@ export const EstimatorSection: React.FC<EstimatorSectionProps> = ({
                         >
                           {isSelected && <Check className="w-3 h-3 text-black stroke-[3]" />}
                         </div>
-                        <div>
+                        <div className="min-w-0">
                           <div
-                            className={`text-sm sm:text-base font-semibold leading-snug ${
-                              isSelected ? 'text-white' : 'text-slate-100'
+                            className={`text-sm sm:text-base font-semibold leading-snug break-words ${
+                              isSelected ? 'text-white' : 'text-[#F8FAFC]'
                             }`}
                           >
                             {issue.name}
                           </div>
-                          <div className="text-xs sm:text-sm font-mono text-slate-300 mt-1">
+                          <div className="text-xs sm:text-sm font-mono text-[#CBD5E1] mt-1">
                             Zəmanət: {issue.warrantyMonths} ay · Orijinal OEM detal
                           </div>
                         </div>
@@ -241,24 +241,24 @@ export const EstimatorSection: React.FC<EstimatorSectionProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-5">
                 <button
                   onClick={() => setIsExpress(false)}
-                  className={`p-3.5 rounded-xl border text-left cursor-pointer transition-all ${
+                  className={`p-4 rounded-xl border text-left cursor-pointer transition-all ${
                     !isExpress
                       ? 'bg-[#00F0FF]/20 border-[#00F0FF]/60 text-white'
-                      : 'bg-[#0B0F19]/80 border-slate-700 text-slate-200 hover:text-white'
+                      : 'bg-[#0B0F19]/90 border-slate-700 text-[#F8FAFC] hover:text-white'
                   }`}
                 >
                   <div className="text-sm sm:text-base font-bold text-white">{t.estimator.urgencyStandard}</div>
-                  <div className="text-xs sm:text-sm text-slate-300 mt-1 leading-snug">
+                  <div className="text-xs sm:text-sm text-[#CBD5E1] mt-1 leading-snug">
                     {t.estimator.urgencyStandardDesc}
                   </div>
                 </button>
 
                 <button
                   onClick={() => setIsExpress(true)}
-                  className={`p-3.5 rounded-xl border text-left cursor-pointer transition-all ${
+                  className={`p-4 rounded-xl border text-left cursor-pointer transition-all ${
                     isExpress
                       ? 'bg-[#00F0FF]/20 border-[#00F0FF]/60 text-white'
-                      : 'bg-[#0B0F19]/80 border-slate-700 text-slate-200 hover:text-white'
+                      : 'bg-[#0B0F19]/90 border-slate-700 text-[#F8FAFC] hover:text-white'
                   }`}
                 >
                   <div className="text-sm sm:text-base font-bold text-white flex items-center justify-between">
@@ -267,7 +267,7 @@ export const EstimatorSection: React.FC<EstimatorSectionProps> = ({
                       +15 ₼
                     </span>
                   </div>
-                  <div className="text-xs sm:text-sm text-slate-300 mt-1 leading-snug">
+                  <div className="text-xs sm:text-sm text-[#CBD5E1] mt-1 leading-snug">
                     {t.estimator.urgencyExpressDesc}
                   </div>
                 </button>

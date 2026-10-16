@@ -56,16 +56,16 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
                 </div>
               </div>
 
-              <h3 className="font-editorial text-2xl sm:text-3xl lg:text-4xl font-normal text-white mb-3 group-hover:text-[#00F0FF] transition-colors">
+              <h3 className="font-editorial text-2xl sm:text-3xl lg:text-4xl font-normal text-[#F8FAFC] mb-3 group-hover:text-[#00F0FF] transition-colors">
                 {b.kombiCard.title}
               </h3>
-              <p className="text-slate-200 text-sm sm:text-base leading-relaxed mb-5 font-normal">
+              <p className="text-slate-100 text-base leading-relaxed mb-5 font-normal">
                 {b.kombiCard.desc}
               </p>
 
               {/* Supported brands */}
-              <div className="text-xs sm:text-sm font-mono text-slate-300 mb-6 pb-4 border-b border-slate-700">
-                <span className="text-slate-400 font-semibold">Xidmət olunan markalar: </span>
+              <div className="text-sm font-mono text-slate-200 mb-6 pb-4 border-b border-slate-700">
+                <span className="text-slate-300 font-semibold">Xidmət olunan markalar: </span>
                 <span className="text-white font-medium">{b.kombiCard.models}</span>
               </div>
 
@@ -74,7 +74,7 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
                 {b.kombiCard.features.map((feat, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 p-2.5 rounded-lg bg-[#0B0F19]/80 border border-slate-700 text-xs sm:text-sm text-slate-100 font-medium leading-snug"
+                    className="flex items-start gap-2.5 p-3 rounded-xl bg-[#0B0F19]/90 border border-slate-700 text-sm text-[#F8FAFC] font-medium leading-snug"
                   >
                     <CheckCircle className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
                     <span>{feat}</span>
@@ -84,7 +84,7 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
             </div>
 
             <div className="pt-6 mt-5 border-t border-slate-800 flex items-center justify-between">
-              <span className="text-xs sm:text-sm font-mono text-slate-300 font-medium">İlkin baxış: Pulsuz</span>
+              <span className="text-sm font-mono text-slate-200 font-medium">İlkin baxış: Pulsuz</span>
               <button
                 onClick={() => onSelectCategoryForDispatch('kombi')}
                 className="flex items-center gap-1.5 text-sm sm:text-base font-bold text-[#00F0FF] hover:text-white transition-colors cursor-pointer"
@@ -108,15 +108,15 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
                 </div>
               </div>
 
-              <h3 className="font-editorial text-2xl sm:text-3xl font-normal text-white mb-3 group-hover:text-[#00F0FF] transition-colors">
+              <h3 className="font-editorial text-2xl sm:text-3xl font-normal text-[#F8FAFC] mb-3 group-hover:text-[#00F0FF] transition-colors">
                 {b.climateCard.title}
               </h3>
-              <p className="text-slate-200 text-sm sm:text-base leading-relaxed mb-5 font-normal">
+              <p className="text-slate-100 text-base leading-relaxed mb-5 font-normal">
                 {b.climateCard.desc}
               </p>
 
-              <div className="text-xs sm:text-sm font-mono text-slate-300 mb-5 pb-4 border-b border-slate-700">
-                <span className="text-slate-400 font-semibold">Brendlər: </span>
+              <div className="text-sm font-mono text-slate-200 mb-5 pb-4 border-b border-slate-700">
+                <span className="text-slate-300 font-semibold">Brendlər: </span>
                 <span className="text-white font-medium">{b.climateCard.models}</span>
               </div>
 
@@ -124,7 +124,7 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
                 {b.climateCard.features.map((feat, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-100 font-medium"
+                    className="flex items-center gap-2.5 text-sm text-[#F8FAFC] font-medium"
                   >
                     <CheckCircle className="w-4 h-4 text-[#00F0FF] shrink-0" />
                     <span>{feat}</span>
@@ -134,7 +134,7 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
             </div>
 
             <div className="pt-6 mt-5 border-t border-slate-800 flex items-center justify-between">
-              <span className="text-xs sm:text-sm font-mono text-slate-300 font-medium">Freon zəmanəti: 12 Ay</span>
+              <span className="text-sm font-mono text-slate-200 font-medium">Freon zəmanəti: 12 Ay</span>
               <button
                 onClick={() => onSelectCategoryForDispatch('kondisioner')}
                 className="flex items-center gap-1.5 text-sm sm:text-base font-bold text-[#00F0FF] hover:text-white transition-colors cursor-pointer"
@@ -157,14 +157,14 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
                 </div>
               </div>
 
-              <h3 className="font-editorial text-2xl font-normal text-white mb-2.5 group-hover:text-[#00F0FF] transition-colors">
+              <h3 className="font-editorial text-2xl font-normal text-[#F8FAFC] mb-2.5 group-hover:text-[#00F0FF] transition-colors">
                 {b.laundryCard.title}
               </h3>
-              <p className="text-slate-200 text-sm sm:text-[15px] leading-relaxed mb-4 font-normal">
+              <p className="text-slate-100 text-sm sm:text-base leading-relaxed mb-4 font-normal">
                 {b.laundryCard.desc}
               </p>
 
-              <div className="space-y-2.5 text-xs sm:text-sm text-slate-100 font-medium">
+              <div className="space-y-2.5 text-sm text-[#F8FAFC] font-medium">
                 {b.laundryCard.features.map((feat, idx) => (
                   <div key={idx} className="flex items-center gap-2.5">
                     <CheckCircle className="w-4 h-4 text-[#10B981] shrink-0" />
@@ -175,10 +175,10 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
             </div>
 
             <div className="pt-5 mt-5 border-t border-slate-700/80 flex justify-between items-center">
-              <span className="text-xs sm:text-sm font-mono text-slate-300">Pres avadanlığı ilə</span>
+              <span className="text-sm font-mono text-slate-200">Pres avadanlığı ilə</span>
               <button
                 onClick={() => onSelectCategoryForDispatch('meiset')}
-                className="text-sm font-bold text-[#00F0FF] hover:text-white flex items-center gap-1 cursor-pointer"
+                className="text-sm sm:text-base font-bold text-[#00F0FF] hover:text-white flex items-center gap-1 cursor-pointer"
               >
                 Sifariş <ArrowUpRight className="w-4 h-4" />
               </button>
@@ -197,14 +197,14 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
                 </div>
               </div>
 
-              <h3 className="font-editorial text-2xl font-normal text-white mb-2.5 group-hover:text-[#00F0FF] transition-colors">
+              <h3 className="font-editorial text-2xl font-normal text-[#F8FAFC] mb-2.5 group-hover:text-[#00F0FF] transition-colors">
                 {b.industrialCard.title}
               </h3>
-              <p className="text-slate-200 text-sm sm:text-[15px] leading-relaxed mb-4 font-normal">
+              <p className="text-slate-100 text-sm sm:text-base leading-relaxed mb-4 font-normal">
                 {b.industrialCard.desc}
               </p>
 
-              <div className="space-y-2.5 text-xs sm:text-sm text-slate-100 font-medium">
+              <div className="space-y-2.5 text-sm text-[#F8FAFC] font-medium">
                 {b.industrialCard.features.map((feat, idx) => (
                   <div key={idx} className="flex items-center gap-2.5">
                     <CheckCircle className="w-4 h-4 text-[#10B981] shrink-0" />
@@ -215,10 +215,10 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
             </div>
 
             <div className="pt-5 mt-5 border-t border-slate-700/80 flex justify-between items-center">
-              <span className="text-xs sm:text-sm font-mono text-slate-300">ƏDV daxil hesab-faktura</span>
+              <span className="text-sm font-mono text-slate-200">ƏDV daxil hesab-faktura</span>
               <button
                 onClick={() => onSelectCategoryForDispatch('senaye')}
-                className="text-sm font-bold text-[#00F0FF] hover:text-white flex items-center gap-1 cursor-pointer"
+                className="text-sm sm:text-base font-bold text-[#00F0FF] hover:text-white flex items-center gap-1 cursor-pointer"
               >
                 Sifariş <ArrowUpRight className="w-4 h-4" />
               </button>
@@ -238,14 +238,14 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
                 </div>
               </div>
 
-              <h3 className="font-editorial text-2xl font-normal text-white mb-2.5 group-hover:text-[#00F0FF] transition-colors">
+              <h3 className="font-editorial text-2xl font-normal text-[#F8FAFC] mb-2.5 group-hover:text-[#00F0FF] transition-colors">
                 {b.mobileLabCard.title}
               </h3>
-              <p className="text-slate-200 text-sm sm:text-[15px] leading-relaxed mb-4 font-normal">
+              <p className="text-slate-100 text-sm sm:text-base leading-relaxed mb-4 font-normal">
                 {b.mobileLabCard.desc}
               </p>
 
-              <div className="space-y-2.5 text-xs sm:text-sm text-slate-100 font-medium">
+              <div className="space-y-2.5 text-sm text-[#F8FAFC] font-medium">
                 {b.mobileLabCard.features.map((feat, idx) => (
                   <div key={idx} className="flex items-center gap-2.5">
                     <CheckCircle className="w-4 h-4 text-[#00F0FF] shrink-0" />
@@ -256,10 +256,10 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
             </div>
 
             <div className="pt-5 mt-5 border-t border-slate-700/80 flex justify-between items-center">
-              <span className="text-xs sm:text-sm font-mono font-bold text-[#00F0FF]">GPS Təhkimatlı Briqada</span>
+              <span className="text-sm font-mono font-bold text-[#00F0FF]">GPS Təhkimatlı Briqada</span>
               <button
                 onClick={() => onSelectCategoryForDispatch('meiset')}
-                className="text-sm font-bold text-[#00F0FF] hover:text-white flex items-center gap-1 cursor-pointer"
+                className="text-sm sm:text-base font-bold text-[#00F0FF] hover:text-white flex items-center gap-1 cursor-pointer"
               >
                 Çağırış <ArrowUpRight className="w-4 h-4" />
               </button>
