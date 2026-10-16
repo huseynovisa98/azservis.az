@@ -1,0 +1,6 @@
+{
+  "name": "azservis.az — Hi-Tech Texniki Servis Portalı",
+  "description": "Baku və Azərbaycanda müasir məişət və iqlim texnikasının zəmanətli peşəkar təmiri, 3D interaktiv diaqnostika və operativ usta xidməti.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
