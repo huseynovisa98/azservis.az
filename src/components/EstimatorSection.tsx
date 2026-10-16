@@ -151,24 +151,24 @@ export const EstimatorSection: React.FC<EstimatorSectionProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Controls Column (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Step 1: Equipment Selection */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-[#161C2E]/80 border border-slate-800 backdrop-blur-md">
-              <div className="text-xs font-mono uppercase tracking-wider text-[#00F0FF] mb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF]" />
+            {/* Step 1: Equipment Selection - Zero Truncation */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#161C2E]/90 border border-slate-700 backdrop-blur-md shadow-lg">
+              <div className="text-xs sm:text-sm font-mono uppercase tracking-wider text-[#00F0FF] font-semibold mb-3.5 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#00F0FF]" />
                 {t.estimator.step1Title}
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
                 {applianceCategories.map((cat) => {
                   const isSelected = selectedCategory === cat.id;
                   return (
                     <button
                       key={cat.id}
                       onClick={() => handleCategorySwitch(cat.id)}
-                      className={`px-3 py-2.5 rounded-lg text-xs font-medium text-left transition-all cursor-pointer truncate ${
+                      className={`px-3.5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-left transition-all cursor-pointer min-h-[46px] flex items-center leading-snug whitespace-normal ${
                         isSelected
-                          ? 'bg-[#00F0FF]/20 text-[#00F0FF] border border-[#00F0FF]/40 shadow-[0_0_12px_rgba(0,240,255,0.15)] font-semibold'
-                          : 'bg-[#0B0F19]/60 text-slate-300 hover:text-white hover:bg-slate-800/80 border border-slate-800'
+                          ? 'bg-[#00F0FF]/25 text-[#00F0FF] border border-[#00F0FF]/60 shadow-[0_0_15px_rgba(0,240,255,0.25)]'
+                          : 'bg-[#0B0F19]/80 text-slate-100 hover:text-white hover:bg-slate-800 border border-slate-700'
                       }`}
                     >
                       {cat.label}
@@ -179,53 +179,51 @@ export const EstimatorSection: React.FC<EstimatorSectionProps> = ({
             </div>
 
             {/* Step 2: Malfunction Selection */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-[#161C2E]/80 border border-slate-800 backdrop-blur-md">
-              <div className="text-xs font-mono uppercase tracking-wider text-[#00F0FF] mb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF]" />
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#161C2E]/90 border border-slate-700 backdrop-blur-md shadow-lg">
+              <div className="text-xs sm:text-sm font-mono uppercase tracking-wider text-[#00F0FF] font-semibold mb-3.5 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#00F0FF]" />
                 {t.estimator.step2Title}
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {activeIssues.map((issue) => {
                   const isSelected = selectedIssueId === issue.id;
                   return (
                     <button
                       key={issue.id}
                       onClick={() => setSelectedIssueId(issue.id)}
-                      className={`w-full p-3.5 rounded-xl text-left border flex items-center justify-between transition-all cursor-pointer ${
+                      className={`w-full p-4 rounded-xl text-left border flex items-center justify-between gap-3 transition-all cursor-pointer ${
                         isSelected
-                          ? 'bg-[#161C2E] border-[#00F0FF]/60 shadow-[0_0_15px_rgba(0,240,255,0.15)]'
-                          : 'bg-[#0B0F19]/50 border-slate-800 hover:border-slate-700 hover:bg-[#0B0F19]/80'
+                          ? 'bg-[#161C2E] border-[#00F0FF]/70 shadow-[0_0_18px_rgba(0,240,255,0.2)]'
+                          : 'bg-[#0B0F19]/80 border-slate-700 hover:border-slate-600 hover:bg-[#0B0F19]'
                       }`}
                     >
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3.5">
                         <div
-                          className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 ${
+                          className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
                             isSelected
                               ? 'border-[#00F0FF] bg-[#00F0FF]'
-                              : 'border-slate-600'
+                              : 'border-slate-500'
                           }`}
                         >
-                          {isSelected && <Check className="w-2.5 h-2.5 text-black" />}
+                          {isSelected && <Check className="w-3 h-3 text-black stroke-[3]" />}
                         </div>
                         <div>
                           <div
-                            className={`text-sm font-medium ${
-                              isSelected ? 'text-white font-semibold' : 'text-slate-300'
+                            className={`text-sm sm:text-base font-semibold leading-snug ${
+                              isSelected ? 'text-white' : 'text-slate-100'
                             }`}
                           >
                             {issue.name}
                           </div>
-                          <div className="text-[11px] font-mono text-slate-500 mt-0.5">
-                            Zəmanət: {issue.warrantyMonths} ay · Orijinal OEM hissə
+                          <div className="text-xs sm:text-sm font-mono text-slate-300 mt-1">
+                            Zəmanət: {issue.warrantyMonths} ay · Orijinal OEM detal
                           </div>
                         </div>
                       </div>
 
-                      <div className="text-right shrink-0 font-mono text-xs text-slate-400">
-                        <span className="text-white font-bold tabular-nums">
-                          ~{issue.labor + issue.partsEst} ₼
-                        </span>
+                      <div className="text-right shrink-0 font-mono text-sm sm:text-base text-[#00F0FF] font-bold tabular-nums">
+                        ~{issue.labor + issue.partsEst} ₼
                       </div>
                     </button>
                   );
@@ -234,55 +232,55 @@ export const EstimatorSection: React.FC<EstimatorSectionProps> = ({
             </div>
 
             {/* Step 3: Urgency and District */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-[#161C2E]/80 border border-slate-800 backdrop-blur-md">
-              <div className="text-xs font-mono uppercase tracking-wider text-[#00F0FF] mb-3 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF]" />
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#161C2E]/90 border border-slate-700 backdrop-blur-md shadow-lg">
+              <div className="text-xs sm:text-sm font-mono uppercase tracking-wider text-[#00F0FF] font-semibold mb-3.5 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#00F0FF]" />
                 {t.estimator.step3Title}
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-5">
                 <button
                   onClick={() => setIsExpress(false)}
-                  className={`p-3 rounded-xl border text-left cursor-pointer transition-all ${
+                  className={`p-3.5 rounded-xl border text-left cursor-pointer transition-all ${
                     !isExpress
-                      ? 'bg-[#00F0FF]/15 border-[#00F0FF]/50 text-white'
-                      : 'bg-[#0B0F19]/60 border-slate-800 text-slate-400 hover:text-white'
+                      ? 'bg-[#00F0FF]/20 border-[#00F0FF]/60 text-white'
+                      : 'bg-[#0B0F19]/80 border-slate-700 text-slate-200 hover:text-white'
                   }`}
                 >
-                  <div className="text-xs font-semibold">{t.estimator.urgencyStandard}</div>
-                  <div className="text-[11px] text-slate-400 mt-1">
+                  <div className="text-sm sm:text-base font-bold text-white">{t.estimator.urgencyStandard}</div>
+                  <div className="text-xs sm:text-sm text-slate-300 mt-1 leading-snug">
                     {t.estimator.urgencyStandardDesc}
                   </div>
                 </button>
 
                 <button
                   onClick={() => setIsExpress(true)}
-                  className={`p-3 rounded-xl border text-left cursor-pointer transition-all ${
+                  className={`p-3.5 rounded-xl border text-left cursor-pointer transition-all ${
                     isExpress
-                      ? 'bg-[#00F0FF]/15 border-[#00F0FF]/50 text-white'
-                      : 'bg-[#0B0F19]/60 border-slate-800 text-slate-400 hover:text-white'
+                      ? 'bg-[#00F0FF]/20 border-[#00F0FF]/60 text-white'
+                      : 'bg-[#0B0F19]/80 border-slate-700 text-slate-200 hover:text-white'
                   }`}
                 >
-                  <div className="text-xs font-semibold flex items-center justify-between">
+                  <div className="text-sm sm:text-base font-bold text-white flex items-center justify-between">
                     <span>{t.estimator.urgencyExpress}</span>
-                    <span className="text-[10px] font-mono text-[#00F0FF] bg-cyan-950 px-1.5 py-0.5 rounded">
+                    <span className="text-xs font-mono font-bold text-[#00F0FF] bg-cyan-950 px-2 py-0.5 rounded border border-cyan-500/30">
                       +15 ₼
                     </span>
                   </div>
-                  <div className="text-[11px] text-slate-400 mt-1">
+                  <div className="text-xs sm:text-sm text-slate-300 mt-1 leading-snug">
                     {t.estimator.urgencyExpressDesc}
                   </div>
                 </button>
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-slate-400 mb-1.5">
+                <label className="block text-xs sm:text-sm font-mono font-semibold text-slate-200 mb-2">
                   Xidmət Ünvanı / Rayon:
                 </label>
                 <select
                   value={selectedDistrict}
                   onChange={(e) => setSelectedDistrict(e.target.value)}
-                  className="w-full bg-[#0B0F19] border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-[#00F0FF]"
+                  className="w-full bg-[#0B0F19] border border-slate-700 rounded-xl px-4 py-3 text-sm sm:text-base text-slate-100 focus:outline-none focus:border-[#00F0FF] font-medium"
                 >
                   {districtsList.map((d) => (
                     <option key={d} value={d}>
@@ -296,89 +294,89 @@ export const EstimatorSection: React.FC<EstimatorSectionProps> = ({
 
           {/* Instant Quote Summary Column (5 cols) */}
           <div className="lg:col-span-5 sticky top-24">
-            <div className="p-6 sm:p-7 rounded-2xl bg-[#161C2E] border border-cyan-500/30 shadow-[0_15px_50px_rgba(0,0,0,0.6)] tech-cyan-glow relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#00F0FF]/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#161C2E] border-2 border-cyan-500/40 shadow-[0_15px_50px_rgba(0,0,0,0.7)] tech-cyan-glow relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-[#00F0FF]/15 rounded-full blur-2xl pointer-events-none" />
 
-              <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
-                <h3 className="font-editorial text-2xl text-white">
+              <div className="flex items-center justify-between mb-5 pb-4 border-b border-slate-700">
+                <h3 className="font-editorial text-2xl sm:text-3xl text-white">
                   {t.estimator.summaryTitle}
                 </h3>
-                <span className="font-mono text-xs text-[#10B981] flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+                <span className="font-mono text-xs sm:text-sm font-bold text-[#10B981] flex items-center gap-1.5 bg-emerald-950/70 px-2.5 py-1 rounded-md border border-emerald-500/40">
+                  <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
                   ONLINE HESAB
                 </span>
               </div>
 
               {/* Itemized lines */}
-              <div className="space-y-3 font-mono text-xs text-slate-300 mb-6">
-                <div className="flex justify-between items-center">
-                  <span className="text-slate-400">{t.estimator.diagnosticFee}:</span>
+              <div className="space-y-3.5 font-mono text-xs sm:text-sm text-slate-200 mb-6">
+                <div className="flex justify-between items-start">
+                  <span className="text-slate-300 font-medium">{t.estimator.diagnosticFee}:</span>
                   <div className="text-right">
-                    <span className="text-[#10B981] font-bold">0 ₼ (PULSUZ)</span>
-                    <div className="text-[10px] text-slate-500">{t.estimator.diagnosticFeeNote}</div>
+                    <span className="text-[#10B981] font-bold text-sm sm:text-base">0 ₼ (PULSUZ)</span>
+                    <div className="text-xs text-slate-300 mt-0.5">{t.estimator.diagnosticFeeNote}</div>
                   </div>
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-slate-400">{t.estimator.laborFee}:</span>
-                  <span className="text-white font-bold tabular-nums">{labor} ₼</span>
+                  <span className="text-slate-300 font-medium">{t.estimator.laborFee}:</span>
+                  <span className="text-white font-bold tabular-nums text-sm sm:text-base">{labor} ₼</span>
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-slate-400">{t.estimator.partsEstimate}:</span>
-                  <span className="text-white font-bold tabular-nums">~{parts} ₼</span>
+                  <span className="text-slate-300 font-medium">{t.estimator.partsEstimate}:</span>
+                  <span className="text-white font-bold tabular-nums text-sm sm:text-base">~{parts} ₼</span>
                 </div>
 
                 {isExpress && (
-                  <div className="flex justify-between items-center text-[#00F0FF]">
+                  <div className="flex justify-between items-center text-[#00F0FF] font-semibold">
                     <span>Təcili Express Çatış (30-45 dəq):</span>
-                    <span className="font-bold tabular-nums">+15 ₼</span>
+                    <span className="font-bold tabular-nums text-sm sm:text-base">+15 ₼</span>
                   </div>
                 )}
 
-                <div className="pt-3 border-t border-slate-800 flex justify-between items-baseline">
+                <div className="pt-4 border-t border-slate-700 flex justify-between items-baseline">
                   <div>
-                    <span className="text-sm font-sans font-bold text-white block">
+                    <span className="text-base font-sans font-bold text-white block">
                       {t.estimator.totalEstimate}:
                     </span>
-                    <span className="text-[10px] text-slate-500">
+                    <span className="text-xs text-slate-300">
                       Rəsmi zəmanət talonu daxil
                     </span>
                   </div>
-                  <div className="text-3xl font-mono font-bold text-[#00F0FF] tabular-nums">
+                  <div className="text-3xl sm:text-4xl font-mono font-bold text-[#00F0FF] tabular-nums">
                     ~{total} ₼
                   </div>
                 </div>
               </div>
 
               {/* Additional specs */}
-              <div className="p-3 rounded-lg bg-[#0B0F19]/70 border border-slate-800/80 text-xs font-mono text-slate-300 space-y-1.5 mb-6">
+              <div className="p-4 rounded-xl bg-[#0B0F19]/90 border border-slate-700 text-xs sm:text-sm font-mono text-slate-200 space-y-2 mb-6">
                 <div className="flex justify-between">
-                  <span className="text-slate-500">{t.estimator.timeToArrival}:</span>
-                  <span className="text-slate-200">
+                  <span className="text-slate-400">{t.estimator.timeToArrival}:</span>
+                  <span className="text-white font-semibold">
                     {isExpress ? '30 - 45 dəqiqə' : '2 - 4 saat ərzində'}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">{t.estimator.warrantyCoverage}:</span>
+                  <span className="text-slate-400">{t.estimator.warrantyCoverage}:</span>
                   <span className="text-[#10B981] font-bold">{currentIssue.warrantyMonths} Ay</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Təhkim olunan Rayon:</span>
-                  <span className="text-slate-200">{selectedDistrict}</span>
+                  <span className="text-slate-400">Təhkim olunan Rayon:</span>
+                  <span className="text-white font-semibold">{selectedDistrict}</span>
                 </div>
               </div>
 
               {/* CTA Button */}
               <button
                 onClick={handleDispatch}
-                className="w-full py-3.5 px-4 rounded-xl bg-[#00F0FF] hover:bg-[#38bdf8] text-black font-bold uppercase tracking-wider text-xs shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:shadow-[0_0_30px_rgba(0,240,255,0.7)] transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+                className="w-full py-4 px-5 rounded-xl bg-[#00F0FF] hover:bg-[#38bdf8] text-slate-950 font-bold uppercase tracking-wider text-sm shadow-[0_0_22px_rgba(0,240,255,0.45)] hover:shadow-[0_0_32px_rgba(0,240,255,0.7)] transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95"
               >
                 <span>{t.estimator.dispatchWithQuoteBtn}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-slate-950" />
               </button>
 
-              <div className="text-center mt-3 text-[11px] text-slate-400">
+              <div className="text-center mt-3.5 text-xs sm:text-sm text-slate-200">
                 {t.estimator.transparentGuarantee}
               </div>
             </div>

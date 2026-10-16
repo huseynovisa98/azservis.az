@@ -16,14 +16,20 @@
 }
 
 html {
+  font-size: 16px;
   scroll-behavior: smooth;
   background-color: #0B0F19;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: var(--font-sans);
   background-color: #0B0F19;
-  color: #F1F5F9;
+  color: #F8FAFC;
+  font-size: 1rem;
+  line-height: 1.6;
   overflow-x: hidden;
 }
 

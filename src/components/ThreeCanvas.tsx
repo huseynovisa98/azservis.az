@@ -687,43 +687,43 @@ export const ThreeCanvas: React.FC<ThreeCanvasProps> = ({
               key={pt.id}
               style={{
                 transform: `translate3d(${pt.x}px, ${pt.y}px, 0)`,
-                left: -12,
-                top: -12,
+                left: -14,
+                top: -14,
               }}
               className="absolute pointer-events-auto transition-transform duration-75"
             >
               <button
                 onClick={() => onSelectHotspot(isSelected ? null : pt.id)}
-                className={`group relative flex items-center justify-center w-6 h-6 rounded-full border transition-all duration-200 ${
+                className={`group relative flex items-center justify-center w-7 h-7 rounded-full border-2 transition-all duration-200 cursor-pointer ${
                   isSelected
-                    ? 'border-[#00F0FF] bg-[#00F0FF]/30 scale-125 shadow-[0_0_15px_#00F0FF]'
-                    : 'border-[#00F0FF]/50 bg-[#0B0F19]/80 hover:scale-110 hover:border-[#00F0FF]'
+                    ? 'border-[#00F0FF] bg-[#00F0FF]/40 scale-125 shadow-[0_0_18px_#00F0FF]'
+                    : 'border-[#00F0FF]/70 bg-[#0B0F19]/90 hover:scale-110 hover:border-[#00F0FF]'
                 }`}
                 title={pt.label}
               >
                 <span
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    isSelected ? 'bg-[#00F0FF]' : 'bg-[#00F0FF]/80 group-hover:bg-[#00F0FF]'
+                  className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                    isSelected ? 'bg-[#00F0FF]' : 'bg-[#00F0FF] group-hover:bg-white'
                   }`}
                 />
 
-                {/* Hotspot Hover / Active Flyout Card */}
+                {/* Hotspot Hover / Active Flyout Card with High Contrast */}
                 <div
-                  className={`pointer-events-none absolute left-8 top-1/2 -translate-y-1/2 w-56 p-3 rounded-lg bg-[#161C2E]/95 border border-[#00F0FF]/30 backdrop-blur-md shadow-2xl transition-all duration-200 z-30 ${
+                  className={`pointer-events-none absolute left-9 top-1/2 -translate-y-1/2 w-64 sm:w-72 p-3.5 rounded-xl bg-[#161C2E]/98 border border-[#00F0FF]/50 backdrop-blur-xl shadow-2xl transition-all duration-200 z-30 ${
                     isSelected
                       ? 'opacity-100 scale-100'
                       : 'opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100'
                   }`}
                 >
-                  <div className="flex items-center justify-between gap-1 mb-1">
-                    <span className="text-[11px] font-semibold text-slate-200 tracking-wide">
+                  <div className="flex items-center justify-between gap-1 mb-1.5">
+                    <span className="text-sm font-bold text-white tracking-wide">
                       {pt.label}
                     </span>
-                    <span className="text-[9px] font-mono text-[#10B981] flex items-center gap-0.5">
-                      <CheckCircle2 className="w-2.5 h-2.5" /> OK
+                    <span className="text-xs font-mono font-bold text-[#10B981] flex items-center gap-1 bg-emerald-950/70 px-1.5 py-0.5 rounded border border-emerald-500/30">
+                      <CheckCircle2 className="w-3 h-3 text-[#10B981]" /> OK
                     </span>
                   </div>
-                  <div className="text-[10px] font-mono text-[#00F0FF] bg-[#0B0F19]/80 px-1.5 py-0.5 rounded border border-cyan-500/15">
+                  <div className="text-xs font-mono font-medium text-[#00F0FF] bg-[#0B0F19] px-2.5 py-1.5 rounded-md border border-cyan-500/30 leading-snug">
                     {pt.metric}
                   </div>
                 </div>
@@ -733,19 +733,19 @@ export const ThreeCanvas: React.FC<ThreeCanvasProps> = ({
         })}
       </div>
 
-      {/* Floating 3D Viewport Controls HUD */}
-      <div className="absolute top-4 right-4 z-20 flex flex-col gap-2">
-        <div className="flex items-center gap-1.5 p-1 bg-[#161C2E]/80 backdrop-blur-md rounded-lg border border-slate-700/60 shadow-lg">
+      {/* Floating 3D Viewport Controls HUD with High Contrast */}
+      <div className="absolute top-4 right-4 z-20 flex flex-col gap-2.5">
+        <div className="flex items-center gap-1.5 p-1.5 bg-[#161C2E]/90 backdrop-blur-md rounded-xl border border-slate-700 shadow-xl">
           <button
             onClick={() => setFreeOrbitMode(!freeOrbitMode)}
-            className={`flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded transition-colors whitespace-nowrap ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg transition-colors whitespace-nowrap cursor-pointer ${
               freeOrbitMode
-                ? 'bg-[#00F0FF]/20 text-[#00F0FF] border border-[#00F0FF]/40'
-                : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                ? 'bg-[#00F0FF]/25 text-[#00F0FF] border border-[#00F0FF]/60'
+                : 'text-slate-100 hover:text-white hover:bg-slate-800'
             }`}
             title="Toggle 360° Free Orbit Rotation"
           >
-            <Compass className="w-3.5 h-3.5" />
+            <Compass className="w-4 h-4 text-[#00F0FF]" />
             <span className="hidden sm:inline">
               {freeOrbitMode ? t.hero.lockScroll : t.hero.freeRotate}
             </span>
@@ -753,18 +753,18 @@ export const ThreeCanvas: React.FC<ThreeCanvasProps> = ({
 
           <button
             onClick={handleResetOrbit}
-            className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800/60 rounded transition-colors"
+            className="p-2 text-slate-200 hover:text-white hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
             title={t.hero.reset3d}
           >
-            <RotateCcw className="w-3.5 h-3.5" />
+            <RotateCcw className="w-4 h-4" />
           </button>
         </div>
 
         {/* Manual Explosion Slider */}
-        <div className="p-2.5 bg-[#161C2E]/80 backdrop-blur-md rounded-lg border border-slate-700/60 shadow-lg w-44">
-          <div className="flex items-center justify-between text-[11px] font-mono text-slate-300 mb-1">
+        <div className="p-3 bg-[#161C2E]/90 backdrop-blur-md rounded-xl border border-slate-700 shadow-xl w-48">
+          <div className="flex items-center justify-between text-xs font-mono text-slate-200 font-semibold mb-1.5">
             <span>{t.hero.scrollExplode}</span>
-            <span className="text-[#00F0FF] font-semibold tabular-nums">
+            <span className="text-[#00F0FF] font-bold tabular-nums text-sm">
               {Math.round(Math.max(scrollProgress, explosionSlider) * 100)}%
             </span>
           </div>
@@ -779,21 +779,21 @@ export const ThreeCanvas: React.FC<ThreeCanvasProps> = ({
               setExplosionSlider(val);
               stateRef.current.targetExplosion = val;
             }}
-            className="w-full accent-[#00F0FF] h-1.5 bg-slate-800 rounded-lg cursor-pointer"
+            className="w-full accent-[#00F0FF] h-2 bg-slate-800 rounded-lg cursor-pointer"
           />
         </div>
       </div>
 
       {/* Floating Blueprint Scale & Status Micro-Bar */}
-      <div className="absolute bottom-4 left-4 z-20 flex items-center gap-3 px-3 py-1.5 bg-[#161C2E]/85 backdrop-blur-md rounded-lg border border-slate-700/60 text-xs font-mono text-slate-400">
-        <span className="text-[#00F0FF] font-medium flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF] animate-pulse" />
+      <div className="absolute bottom-4 left-4 z-20 flex items-center gap-3 px-3.5 py-2 bg-[#161C2E]/95 backdrop-blur-md rounded-xl border border-slate-700 text-xs sm:text-sm font-mono text-slate-200 shadow-lg">
+        <span className="text-[#00F0FF] font-bold flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#00F0FF] animate-pulse" />
           WebGL 2.0 PBR
         </span>
-        <span className="text-slate-600">|</span>
-        <span>MODEL: INV-MOTOR-GEN4</span>
-        <span className="hidden sm:inline text-slate-600">|</span>
-        <span className="hidden sm:inline text-[#10B981]">120Hz SYNC</span>
+        <span className="text-slate-500">|</span>
+        <span className="font-semibold text-slate-100">MODEL: INV-MOTOR-GEN4</span>
+        <span className="hidden sm:inline text-slate-500">|</span>
+        <span className="hidden sm:inline text-[#10B981] font-bold">120Hz SYNC</span>
       </div>
     </div>
   );

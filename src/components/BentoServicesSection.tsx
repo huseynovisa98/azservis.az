@@ -42,52 +42,52 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
           {/* Card 1: Large Marquee Kombi Card (7 cols) */}
-          <div className="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-[#161C2E]/80 border border-slate-800 hover:border-cyan-500/40 transition-all duration-300 backdrop-blur-md flex flex-col justify-between group hover:shadow-[0_10px_35px_rgba(0,240,255,0.1)]">
+          <div className="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-[#161C2E]/90 border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 backdrop-blur-md flex flex-col justify-between group hover:shadow-[0_10px_35px_rgba(0,240,255,0.15)] shadow-lg">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400">
-                  <Flame className="w-5 h-5" />
+                <div className="w-11 h-11 rounded-xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-400">
+                  <Flame className="w-6 h-6" />
                 </div>
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#0B0F19] border border-orange-500/30 text-[11px] font-mono text-orange-400">
-                  <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
+                <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-[#0B0F19] border border-orange-500/40 text-xs sm:text-sm font-mono text-orange-400 font-bold">
+                  <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
                   {b.kombiCard.badge}
                 </div>
               </div>
 
-              <h3 className="font-editorial text-2xl sm:text-3xl font-normal text-white mb-2 group-hover:text-[#00F0FF] transition-colors">
+              <h3 className="font-editorial text-2xl sm:text-3xl lg:text-4xl font-normal text-white mb-3 group-hover:text-[#00F0FF] transition-colors">
                 {b.kombiCard.title}
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-4">
+              <p className="text-slate-200 text-sm sm:text-base leading-relaxed mb-5 font-normal">
                 {b.kombiCard.desc}
               </p>
 
               {/* Supported brands */}
-              <div className="text-xs font-mono text-slate-400 mb-5 pb-4 border-b border-slate-800">
-                <span className="text-slate-500">Xidmət olunan markalar: </span>
-                <span className="text-slate-200">{b.kombiCard.models}</span>
+              <div className="text-xs sm:text-sm font-mono text-slate-300 mb-6 pb-4 border-b border-slate-700">
+                <span className="text-slate-400 font-semibold">Xidmət olunan markalar: </span>
+                <span className="text-white font-medium">{b.kombiCard.models}</span>
               </div>
 
-              {/* Features list */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              {/* Features list - Zero Truncation */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                 {b.kombiCard.features.map((feat, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-2 p-2 rounded-lg bg-[#0B0F19]/60 border border-slate-800 text-xs text-slate-300"
+                    className="flex items-start gap-2.5 p-2.5 rounded-lg bg-[#0B0F19]/80 border border-slate-700 text-xs sm:text-sm text-slate-100 font-medium leading-snug"
                   >
-                    <CheckCircle className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
-                    <span className="truncate">{feat}</span>
+                    <CheckCircle className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
+                    <span>{feat}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="pt-6 mt-4 flex items-center justify-between">
-              <span className="text-xs font-mono text-slate-500">İlkin baxış: Pulsuz</span>
+            <div className="pt-6 mt-5 border-t border-slate-800 flex items-center justify-between">
+              <span className="text-xs sm:text-sm font-mono text-slate-300 font-medium">İlkin baxış: Pulsuz</span>
               <button
                 onClick={() => onSelectCategoryForDispatch('kombi')}
-                className="flex items-center gap-1.5 text-xs font-semibold text-[#00F0FF] hover:text-white transition-colors cursor-pointer"
+                className="flex items-center gap-1.5 text-sm sm:text-base font-bold text-[#00F0FF] hover:text-white transition-colors cursor-pointer"
               >
                 <span>Usta Təyin Et</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -96,48 +96,48 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
           </div>
 
           {/* Card 2: Climate & VRF Card (5 cols) */}
-          <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-[#161C2E]/80 border border-slate-800 hover:border-cyan-500/40 transition-all duration-300 backdrop-blur-md flex flex-col justify-between group hover:shadow-[0_10px_35px_rgba(0,240,255,0.1)]">
+          <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-[#161C2E]/90 border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 backdrop-blur-md flex flex-col justify-between group hover:shadow-[0_10px_35px_rgba(0,240,255,0.15)] shadow-lg">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-[#00F0FF]">
-                  <Wind className="w-5 h-5" />
+                <div className="w-11 h-11 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-[#00F0FF]">
+                  <Wind className="w-6 h-6" />
                 </div>
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#0B0F19] border border-cyan-500/30 text-[11px] font-mono text-[#00F0FF]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF]" />
+                <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-[#0B0F19] border border-cyan-500/40 text-xs sm:text-sm font-mono text-[#00F0FF] font-bold">
+                  <span className="w-2 h-2 rounded-full bg-[#00F0FF]" />
                   {b.climateCard.badge}
                 </div>
               </div>
 
-              <h3 className="font-editorial text-2xl font-normal text-white mb-2 group-hover:text-[#00F0FF] transition-colors">
+              <h3 className="font-editorial text-2xl sm:text-3xl font-normal text-white mb-3 group-hover:text-[#00F0FF] transition-colors">
                 {b.climateCard.title}
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-4">
+              <p className="text-slate-200 text-sm sm:text-base leading-relaxed mb-5 font-normal">
                 {b.climateCard.desc}
               </p>
 
-              <div className="text-xs font-mono text-slate-400 mb-4 pb-3 border-b border-slate-800">
-                <span className="text-slate-500">Brendlər: </span>
-                <span className="text-slate-200">{b.climateCard.models}</span>
+              <div className="text-xs sm:text-sm font-mono text-slate-300 mb-5 pb-4 border-b border-slate-700">
+                <span className="text-slate-400 font-semibold">Brendlər: </span>
+                <span className="text-white font-medium">{b.climateCard.models}</span>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {b.climateCard.features.map((feat, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-2 text-xs text-slate-300"
+                    className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-100 font-medium"
                   >
-                    <CheckCircle className="w-3.5 h-3.5 text-[#00F0FF] shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-[#00F0FF] shrink-0" />
                     <span>{feat}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="pt-6 mt-4 flex items-center justify-between">
-              <span className="text-xs font-mono text-slate-500">Freon zəmanəti: 12 Ay</span>
+            <div className="pt-6 mt-5 border-t border-slate-800 flex items-center justify-between">
+              <span className="text-xs sm:text-sm font-mono text-slate-300 font-medium">Freon zəmanəti: 12 Ay</span>
               <button
                 onClick={() => onSelectCategoryForDispatch('kondisioner')}
-                className="flex items-center gap-1.5 text-xs font-semibold text-[#00F0FF] hover:text-white transition-colors cursor-pointer"
+                className="flex items-center gap-1.5 text-sm sm:text-base font-bold text-[#00F0FF] hover:text-white transition-colors cursor-pointer"
               >
                 <span>Usta Təyin Et</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -146,122 +146,122 @@ export const BentoServicesSection: React.FC<BentoServicesSectionProps> = ({
           </div>
 
           {/* Card 3: Smart Laundry & Appliances (4 cols) */}
-          <div className="lg:col-span-4 p-6 rounded-2xl bg-[#161C2E]/80 border border-slate-800 hover:border-cyan-500/40 transition-all duration-300 backdrop-blur-md flex flex-col justify-between group">
+          <div className="lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-[#161C2E]/90 border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 backdrop-blur-md flex flex-col justify-between group shadow-lg">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
-                  <Cpu className="w-5 h-5" />
+                <div className="w-11 h-11 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                  <Cpu className="w-6 h-6" />
                 </div>
-                <div className="px-2 py-0.5 rounded-md bg-[#0B0F19] border border-emerald-500/30 text-[11px] font-mono text-[#10B981]">
+                <div className="px-3 py-1 rounded-md bg-[#0B0F19] border border-emerald-500/40 text-xs sm:text-sm font-mono text-[#10B981] font-bold">
                   {b.laundryCard.badge}
                 </div>
               </div>
 
-              <h3 className="font-editorial text-2xl font-normal text-white mb-2 group-hover:text-[#00F0FF] transition-colors">
+              <h3 className="font-editorial text-2xl font-normal text-white mb-2.5 group-hover:text-[#00F0FF] transition-colors">
                 {b.laundryCard.title}
               </h3>
-              <p className="text-slate-300 text-xs leading-relaxed mb-4">
+              <p className="text-slate-200 text-sm sm:text-[15px] leading-relaxed mb-4 font-normal">
                 {b.laundryCard.desc}
               </p>
 
-              <div className="space-y-2 text-xs text-slate-300">
+              <div className="space-y-2.5 text-xs sm:text-sm text-slate-100 font-medium">
                 {b.laundryCard.features.map((feat, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <CheckCircle className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                  <div key={idx} className="flex items-center gap-2.5">
+                    <CheckCircle className="w-4 h-4 text-[#10B981] shrink-0" />
                     <span>{feat}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="pt-5 mt-4 border-t border-slate-800 flex justify-between items-center">
-              <span className="text-xs font-mono text-slate-500">Pres avadanlığı ilə</span>
+            <div className="pt-5 mt-5 border-t border-slate-700/80 flex justify-between items-center">
+              <span className="text-xs sm:text-sm font-mono text-slate-300">Pres avadanlığı ilə</span>
               <button
                 onClick={() => onSelectCategoryForDispatch('meiset')}
-                className="text-xs font-semibold text-[#00F0FF] hover:text-white flex items-center gap-1 cursor-pointer"
+                className="text-sm font-bold text-[#00F0FF] hover:text-white flex items-center gap-1 cursor-pointer"
               >
-                Sifariş <ArrowUpRight className="w-3.5 h-3.5" />
+                Sifariş <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
           </div>
 
           {/* Card 4: Commercial & Industrial Systems (4 cols) */}
-          <div className="lg:col-span-4 p-6 rounded-2xl bg-[#161C2E]/80 border border-slate-800 hover:border-cyan-500/40 transition-all duration-300 backdrop-blur-md flex flex-col justify-between group">
+          <div className="lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-[#161C2E]/90 border border-slate-700 hover:border-cyan-500/50 transition-all duration-300 backdrop-blur-md flex flex-col justify-between group shadow-lg">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-[#10B981]">
-                  <Factory className="w-5 h-5" />
+                <div className="w-11 h-11 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-[#10B981]">
+                  <Factory className="w-6 h-6" />
                 </div>
-                <div className="px-2 py-0.5 rounded-md bg-[#0B0F19] border border-cyan-500/30 text-[11px] font-mono text-[#00F0FF]">
+                <div className="px-3 py-1 rounded-md bg-[#0B0F19] border border-cyan-500/40 text-xs sm:text-sm font-mono text-[#00F0FF] font-bold">
                   {b.industrialCard.badge}
                 </div>
               </div>
 
-              <h3 className="font-editorial text-2xl font-normal text-white mb-2 group-hover:text-[#00F0FF] transition-colors">
+              <h3 className="font-editorial text-2xl font-normal text-white mb-2.5 group-hover:text-[#00F0FF] transition-colors">
                 {b.industrialCard.title}
               </h3>
-              <p className="text-slate-300 text-xs leading-relaxed mb-4">
+              <p className="text-slate-200 text-sm sm:text-[15px] leading-relaxed mb-4 font-normal">
                 {b.industrialCard.desc}
               </p>
 
-              <div className="space-y-2 text-xs text-slate-300">
+              <div className="space-y-2.5 text-xs sm:text-sm text-slate-100 font-medium">
                 {b.industrialCard.features.map((feat, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <CheckCircle className="w-3.5 h-3.5 text-[#10B981] shrink-0" />
+                  <div key={idx} className="flex items-center gap-2.5">
+                    <CheckCircle className="w-4 h-4 text-[#10B981] shrink-0" />
                     <span>{feat}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="pt-5 mt-4 border-t border-slate-800 flex justify-between items-center">
-              <span className="text-xs font-mono text-slate-500">ƏDV daxil hesab-faktura</span>
+            <div className="pt-5 mt-5 border-t border-slate-700/80 flex justify-between items-center">
+              <span className="text-xs sm:text-sm font-mono text-slate-300">ƏDV daxil hesab-faktura</span>
               <button
                 onClick={() => onSelectCategoryForDispatch('senaye')}
-                className="text-xs font-semibold text-[#00F0FF] hover:text-white flex items-center gap-1 cursor-pointer"
+                className="text-sm font-bold text-[#00F0FF] hover:text-white flex items-center gap-1 cursor-pointer"
               >
-                Sifariş <ArrowUpRight className="w-3.5 h-3.5" />
+                Sifariş <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
           </div>
 
           {/* Card 5: Mobile Diagnostic Fleet (4 cols) */}
-          <div className="lg:col-span-4 p-6 rounded-2xl bg-gradient-to-br from-[#161C2E] to-[#121829] border border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300 backdrop-blur-md flex flex-col justify-between group shadow-[0_4px_25px_rgba(0,240,255,0.08)]">
+          <div className="lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-[#161C2E] to-[#121829] border-2 border-cyan-500/40 hover:border-cyan-500/70 transition-all duration-300 backdrop-blur-md flex flex-col justify-between group shadow-[0_4px_25px_rgba(0,240,255,0.12)]">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-[#00F0FF]">
-                  <Truck className="w-5 h-5" />
+                <div className="w-11 h-11 rounded-xl bg-cyan-500/25 border border-cyan-500/40 flex items-center justify-center text-[#00F0FF]">
+                  <Truck className="w-6 h-6" />
                 </div>
-                <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#0B0F19] border border-emerald-500/40 text-[11px] font-mono text-[#10B981]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+                <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-[#0B0F19] border border-emerald-500/50 text-xs sm:text-sm font-mono text-[#10B981] font-bold">
+                  <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
                   {b.mobileLabCard.badge}
                 </div>
               </div>
 
-              <h3 className="font-editorial text-2xl font-normal text-white mb-2 group-hover:text-[#00F0FF] transition-colors">
+              <h3 className="font-editorial text-2xl font-normal text-white mb-2.5 group-hover:text-[#00F0FF] transition-colors">
                 {b.mobileLabCard.title}
               </h3>
-              <p className="text-slate-300 text-xs leading-relaxed mb-4">
+              <p className="text-slate-200 text-sm sm:text-[15px] leading-relaxed mb-4 font-normal">
                 {b.mobileLabCard.desc}
               </p>
 
-              <div className="space-y-2 text-xs text-slate-300">
+              <div className="space-y-2.5 text-xs sm:text-sm text-slate-100 font-medium">
                 {b.mobileLabCard.features.map((feat, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <CheckCircle className="w-3.5 h-3.5 text-[#00F0FF] shrink-0" />
+                  <div key={idx} className="flex items-center gap-2.5">
+                    <CheckCircle className="w-4 h-4 text-[#00F0FF] shrink-0" />
                     <span>{feat}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="pt-5 mt-4 border-t border-slate-800 flex justify-between items-center">
-              <span className="text-xs font-mono text-[#00F0FF]">GPS Təhkimatlı Briqada</span>
+            <div className="pt-5 mt-5 border-t border-slate-700/80 flex justify-between items-center">
+              <span className="text-xs sm:text-sm font-mono font-bold text-[#00F0FF]">GPS Təhkimatlı Briqada</span>
               <button
                 onClick={() => onSelectCategoryForDispatch('meiset')}
-                className="text-xs font-semibold text-[#00F0FF] hover:text-white flex items-center gap-1 cursor-pointer"
+                className="text-sm font-bold text-[#00F0FF] hover:text-white flex items-center gap-1 cursor-pointer"
               >
-                Çağırış <ArrowUpRight className="w-3.5 h-3.5" />
+                Çağırış <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
           </div>
